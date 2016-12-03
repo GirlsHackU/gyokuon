@@ -1,8 +1,7 @@
 {
-  "globalDependencies": {
-    "react-bootstrap": "registry:dt/react-bootstrap#0.0.0+20160806072414"
-  },
   "dependencies": {
-    "react-bootstrap": "github:react-bootstrap/react-bootstrap-typescript/index.d.ts"
+    "react": "registry:npm/react#15.0.1+20160601175240",
+    "react-bootstrap": "github:react-bootstrap/react-bootstrap-typescript/index.d.ts",
+    "react-dom": "registry:npm/react-dom#15.0.1+20160826174104"
   }
 }
