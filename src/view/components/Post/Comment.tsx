@@ -1,5 +1,5 @@
 import * as React from "react";
-import {CommentObject} from "../objects/CommentObject";
+import {CommentObject} from "../../objects/CommentObject";
 import {Button} from "react-bootstrap";
 
 export interface P {

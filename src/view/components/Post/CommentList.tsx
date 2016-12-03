@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Comment} from "./Comment"
-import {CommentObject} from "../objects/CommentObject";
+import {CommentObject} from "../../objects/CommentObject";
 
 interface P {
   commentObjects: CommentObject[];

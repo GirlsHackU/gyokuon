@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {CommentBox} from "./components/CommentBox";
+import {Home} from "./components/Home/Home";
 
 ReactDOM.render(
-     <CommentBox />,
+     <Home />,
     document.getElementById('content')
 );

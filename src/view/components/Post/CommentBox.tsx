@@ -1,7 +1,7 @@
 import * as React from "react";
 import {CommentList} from "./CommentList";
 import {CommentForm} from "./CommentForm";
-import {CommentObject} from '../objects/CommentObject'
+import {CommentObject} from '../../objects/CommentObject'
 
 interface P {
 }
