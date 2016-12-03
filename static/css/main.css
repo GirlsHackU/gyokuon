@@ -4,8 +4,16 @@ body {
 
 header {
   color: #333;
-  font-size: 20pt;
 }
+
+header h1{
+font-size: 20pt;
+}
+
+header p{
+font-size: 10.5pt;
+}
+
 header img{
   width: 50px;
   height:50px;

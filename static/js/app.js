@@ -40820,10 +40820,10 @@
 	        return (React.createElement("header", null, 
 	            React.createElement(react_bootstrap_1.Navbar, {inverse: true, collapseOnSelect: true}, 
 	                React.createElement(react_bootstrap_1.Navbar.Header, null, 
-	                    React.createElement("p", null, 
+	                    React.createElement("h1", null, 
 	                        React.createElement("img", {src: "../images/heart.png", alt: "heart"}), 
-	                        "Kyun-FM")
-	                )
+	                        "Kyun-FM"), 
+	                    React.createElement("p", null, "あなたの\"きゅん\"お待ちしています"))
 	            )
 	        ));
 	    };

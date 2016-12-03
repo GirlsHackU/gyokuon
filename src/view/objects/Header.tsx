@@ -12,7 +12,8 @@ export class Header extends React.Component<P,S> {
       <header>
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
-            <p><img src="../images/heart.png" alt="heart"/>Kyun-FM</p>
+            <h1><img src="../images/heart.png" alt="heart"/>Kyun-FM</h1>
+            <p>あなたの"きゅん"お待ちしています</p>
           </Navbar.Header>
         </Navbar>
       </header>
