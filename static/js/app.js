@@ -21822,9 +21822,9 @@
 	            React.createElement(Header_1.Header, null), 
 	            React.createElement("div", {className: "home"}, 
 	                React.createElement("h1", null, "放送中の番組"), 
-	                React.createElement(react_bootstrap_1.Button, null, "きゅん on Radio"), 
-	                React.createElement(react_bootstrap_1.Button, null, "コッソリ告白"), 
-	                React.createElement(react_bootstrap_1.Button, null, "玉 音"))));
+	                React.createElement(react_bootstrap_1.Button, {bsStyle: "black", block: true}, "きゅん on Radio"), 
+	                React.createElement(react_bootstrap_1.Button, {bsStyle: "black", block: true}, "コッソリ告白"), 
+	                React.createElement(react_bootstrap_1.Button, {bsStyle: "black", block: true}, "玉 音"))));
 	    };
 	    return Home;
 	}(React.Component));

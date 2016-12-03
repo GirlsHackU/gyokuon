@@ -6,7 +6,7 @@ interface P {
 interface S {
 }
 
-export class Home extends React.Component<P,S> {
+export class Search extends React.Component<P,S> {
 
   render(): React.ReactElement<any> {
     return (

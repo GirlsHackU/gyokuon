@@ -15,9 +15,9 @@ export class Home extends React.Component<P,S> {
         <Header />
         <div className="home">
           <h1>放送中の番組</h1>
-          <Button>きゅん on Radio</Button>
-          <Button>コッソリ告白</Button>
-          <Button>玉 音</Button>
+          <Button bsStyle="black" block>きゅん on Radio</Button>
+          <Button bsStyle="black" block>コッソリ告白</Button>
+          <Button bsStyle="black" block>玉 音</Button>
         </div>
       </div>
     );
