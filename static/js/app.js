@@ -40810,14 +40810,21 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
+	var react_bootstrap_1 = __webpack_require__(186);
 	var Header = (function (_super) {
 	    __extends(Header, _super);
 	    function Header() {
 	        _super.apply(this, arguments);
 	    }
 	    Header.prototype.render = function () {
-	        return (React.createElement("div", null, 
-	            React.createElement("p", null, "menu")
+	        return (React.createElement("header", null, 
+	            React.createElement(react_bootstrap_1.Navbar, {inverse: true, collapseOnSelect: true}, 
+	                React.createElement(react_bootstrap_1.Navbar.Header, null, 
+	                    React.createElement("p", null, 
+	                        React.createElement("img", {src: "../images/heart.png", alt: "heart"}), 
+	                        "Kyun-FM")
+	                )
+	            )
 	        ));
 	    };
 	    return Header;
