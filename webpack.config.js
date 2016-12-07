@@ -3,10 +3,12 @@ module.exports = {
         app: ["./src/index.ts"]
     },
     output: {
-        filename: "static/app.js"
+        path: "static",
+        filename: "js/app.js"
     },
     devServer: {
-        contentBase: 'static'
+        contentBase: 'static',
+        hot: true
     },
     // source-mapを出力
     devtool: "#source-map",

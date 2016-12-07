@@ -2,4 +2,4 @@
 node_modules
 .idea
 typings
-static/app.js*
+static/js/app.js*
