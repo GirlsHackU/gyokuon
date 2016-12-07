@@ -13,7 +13,7 @@ interface S {
 export class HowToUse extends React.Component<P,S> {
   render(): React.ReactElement<any> {
     return (
-      <div class="how-to-use">
+      <div className="how-to-use">
         <Button bsStyle="danger"><img src="../images/howtouse.png" alt="howtouse"/></Button>
       </div>
     );

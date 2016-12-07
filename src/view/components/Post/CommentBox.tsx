@@ -21,15 +21,15 @@ export class CommentBox extends React.Component<P,S> {
     }
   }
 
-  changeAuthor(e):void {
+  changeAuthor(e): void {
     this.setState({newComment: new CommentObject(this.state.newComment.id, e.target.value, this.state.newComment.text)});
   }
 
-  changeText(e):void {
+  changeText(e): void {
     this.setState({newComment: new CommentObject(this.state.newComment.id, this.state.newComment.author, e.target.value)});
   }
 
-  addComment():void {
+  addComment(): void {
     this.state.comments.push(this.state.newComment);
     var nextId = this.state.comments.filter(d => d.hasOwnProperty('id')).map(d => d.id).reduce((p: number, c: number) => p > c ? p : c) + 1;
     var nextComment = new CommentObject(nextId, "", "");
@@ -38,13 +38,15 @@ export class CommentBox extends React.Component<P,S> {
 
   render(): React.ReactElement<any> {
     return (
-      <div className="commentBox">
+      <div className="post">
         <h1>きゅんonRadio</h1>
-        <p>あなたの"きゅん"エピソードを教えてください</p>
+        <p>／あなたの"きゅん"エピソードを教えてください＼</p>
         <CommentForm onSubmit={this.addComment.bind(this)}
                      changeAuthor={this.changeAuthor.bind(this)}
                      changeText={this.changeText.bind(this)}/>
-        <CommentList commentObjects={this.state.comments}/>
+        <div className="real-time-post">
+          <CommentList commentObjects={this.state.comments}/>
+        </div>
       </div>
     );
   }
