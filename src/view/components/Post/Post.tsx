@@ -4,6 +4,7 @@
 
 import * as React from "react";
 import {CommentBox} from "./CommentBox";
+import {Header} from "../../objects/Header";
 
 interface P {
 }
@@ -15,7 +16,8 @@ export class Post extends React.Component<P,S> {
   render() {
     return (
       <div>
-        <CommentBox></CommentBox>
+        <Header />
+        <CommentBox />
       </div>
     )
   }
