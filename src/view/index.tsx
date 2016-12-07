@@ -9,7 +9,7 @@ import {Provider} from "react-redux";
 import {rootReducer} from "../reducers/rootReducer";
 import {browserHistory} from "react-router";
 import {routerMiddleware} from "react-router-redux";
-import {createStore, compose, applyMiddleware} from "redux";
+import {createStore, compose, applyMiddleware, Middleware} from "redux";
 import {syncHistoryWithStore} from "react-router-redux";
 
 const routes = (
@@ -20,7 +20,7 @@ const routes = (
     </Route>
 );
 
-const store = createStore(rootReducer, compose(applyMiddleware(routerMiddleware(browserHistory))));
+const store = createStore(rootReducer, compose(applyMiddleware(routerMiddleware(browserHistory) as Middleware)));
 const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
