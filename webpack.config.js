@@ -3,7 +3,7 @@ module.exports = {
         app: ["./src/index.ts"]
     },
     output: {
-        filename: "static/js/app.js"
+        filename: "static/app.js"
     },
     devServer: {
         contentBase: 'static'
