@@ -9,28 +9,9 @@ import {Provider} from "react-redux";
 import {rootReducer} from "../reducers/RootReducer";
 import {browserHistory} from "react-router";
 import {routerMiddleware} from "react-router-redux";
-// import {createStore, compose, applyMiddleware} from "~react-redux~redux";
-import {createStore,compose,applyMiddleware} from "redux";
-// import {createStore, compose, applyMiddleware} from "react-redux";
 
-const routes = (
-  <Route path="/" component={Page}>
-    <IndexRoute component={Home}/>
-    <Route path="post" component={Post}/>
-    <Route path="search" component={Search}/>
-    {/*<Route path="*" component={NotFound} />*/}
-  </Route>
-)
-
-let rm = routerMiddleware(browserHistory);
-let am=applyMiddleware(rm);
-let store = createStore(rotReducer, compose(am));
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router >
-      {routes}
-    </Router>
-  </Provider>,
+  <Home />,
   document.getElementById('content')
 );
