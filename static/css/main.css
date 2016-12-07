@@ -1,36 +1,64 @@
 body {
   height: 100%;
+  font-family: meiryo;
 }
 
 header {
+  position: relative;
   color: #333;
 }
 
 header h1 {
   font-size: 20pt;
+  font-family: Arial;
 }
 
 header p {
-  font-size: 10.5pt;
+  font-size: 9pt;
+  margin-top: -10px;
+  padding-left: 10px;
 }
 
 header img {
-  width: 45px;
+  width: 159px;
   height: 45px;
   margin-top: -20px;
+}
+footer{
+  position: absolute;
+  bottom: 0;
+}
+
+footer img{
+  width: 100%;
+}
+
+.main-menu{
+  margin-left: 10px;
+}
+.how-to-use{
+  position: absolute;
+  right:10px;
+  bottom: 10px;
 }
 
 .btn-black {
   background-color: #222;
   color: #FFF;
 }
+
 .btn-block {
-  margin: 0 auto;
-  width: 80%;
+  width: 60%;
 }
 
 h1 {
-  font-size: 16pt;
+  font-size: 15pt;
+}
+h2{
+  font-size: 15pt;
+}
+p{
+  font-size: 11pt;
 }
 
 .navbar-inverse {
