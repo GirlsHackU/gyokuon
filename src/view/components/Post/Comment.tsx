@@ -14,11 +14,10 @@ export class Comment extends React.Component<P, S> { //commentListの子要素�
   render(): React.ReactElement<any> {
     return (
       <div className="comment">
-        <h2 className="commentAuthor">
-          {this.props.commentObject.author}
-        </h2>
-        <p>{this.props.commentObject.text}</p>
-        <Button>Select</Button>
+        <p className="commentAuthor">
+          {this.props.commentObject.author}:
+          {this.props.commentObject.text}</p>
+        <Button>more...</Button>
       </div>
     );
   }

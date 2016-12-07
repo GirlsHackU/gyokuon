@@ -15,11 +15,9 @@ export class CommentBox extends React.Component<P,S> {
     super(props);
     this.state = {
       comments: [
-        new CommentObject(1, "Suneo", "好きな子と目があった！！"),
-        new CommentObject(2, "Aizawa", "ひざまくらをしてもらった///"),
-        new CommentObject(3, "Minori", "心がぴょんぴょんするんじゃああああ")
+        new CommentObject(1, "Suneo", "最近Aくんとよく目があってドキドキしてしまいます…"),
       ],
-      newComment: new CommentObject(4, "", "")
+      newComment: new CommentObject(2, "", "")
     }
   }
 
@@ -41,11 +39,12 @@ export class CommentBox extends React.Component<P,S> {
   render(): React.ReactElement<any> {
     return (
       <div className="commentBox">
-        <h1>みんなの"きゅん"</h1>
-        <CommentList commentObjects={this.state.comments}/>
+        <h1>きゅんonRadio</h1>
+        <p>あなたの"きゅん"エピソードを教えてください</p>
         <CommentForm onSubmit={this.addComment.bind(this)}
                      changeAuthor={this.changeAuthor.bind(this)}
                      changeText={this.changeText.bind(this)}/>
+        <CommentList commentObjects={this.state.comments}/>
       </div>
     );
   }

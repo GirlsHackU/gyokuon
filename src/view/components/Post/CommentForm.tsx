@@ -16,14 +16,12 @@ export class CommentForm extends React.Component<P, S>{
         return (
             <div className="commentForm">
                 <div>
-                    author
-                    <input type="text" onChange={this.props.changeAuthor}/>
+                    PN<input type="text" onChange={this.props.changeAuthor}/>
                 </div>
                 <div>
-                    comment
-                    <input type="text" onChange={this.props.changeText}/>
+                  投稿<input type="text" onChange={this.props.changeText}/>
                 </div>
-                <Button onClick={this.props.onSubmit}>Submit</Button>
+                <Button bsStyle="danger" onClick={this.props.onSubmit}>投稿</Button>
             </div>
         );
     }
