@@ -33,6 +33,7 @@ footer {
 footer img {
   width: 250%;
   margin-left: -15%;
+  margin-bottom: -5%;
 }
 
 @media screen and (min-width: 480px) {
@@ -82,46 +83,38 @@ p {
 
 /*-------------ここからコンテンツ要素-------------*/
 
+/*------Header------*/
+.navbar-inverse {
+  background-color: #FFF;
+  border-color: #FFF;
+}
+
+/*------Home------*/
+
 .main-menu {
   margin-left: 10px;
 }
-
-.how-to-use {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
+.main-menu p{
+  margin-top: -10px;
 }
 
-.post {
-  margin-left: 10px;
-}
-
-.post p {
+.menu-list p{
   font-size: 9pt;
-  margin-top: -10px
+  line-height: 10pt;
+  margin-top: 0;
+  padding: 5px;
+  vertical-align: middle;
 }
-
-.post .btn-danger{
-  margin-top: 10px;
-  margin-left:240px;
-}
-.post .btn-default{
-
-}
-
-.real-time-post {
-  margin-top: 40px;
-}
-
 .btn-black {
   background-color: #222;
   color: #FFF;
 }
 
 .btn-block {
-  width: 60%;
+  float: left;
+  width: 55%;
+  margin-right: 5px;
 }
-
 @media screen and (min-width: 768px) {
   .btn-block {
     width: 450px;
@@ -129,9 +122,40 @@ p {
   }
 }
 
-.navbar-inverse {
-  background-color: #FFF;
-  border-color: #FFF;
+.how-to-use {
+  position: absolute;
+  right: 10%;
+  bottom: 25%;
+}
+
+/*------Post------*/
+
+.post {
+  margin-left: 10px;
+}
+
+.post p {
+  font-size: 9pt;
+  margin-top: -10px;
+}
+
+.post .commentList p {
+  float: left;
+  width: 220px;
+}
+
+.post .btn-danger {
+  margin-top: 10px;
+  margin-left: 240px;
+}
+
+.post .btn-default {
+  float: left;
+  height: 25px;
+}
+
+.real-time-post {
+  margin-top: 40px;
 }
 
 .commentList {
