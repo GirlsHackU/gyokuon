@@ -12,6 +12,6 @@ import {routerMiddleware} from "react-router-redux";
 
 
 ReactDOM.render(
-  <Post />,
+  <Home />,
   document.getElementById('content')
 );
