@@ -63,12 +63,12 @@ footer img {
 h1 {
   font-size: 15pt;
 }
+
 @media screen and (min-width: 768px) {
-  h2{
+  h2 {
     margin-left: 5%;
   }
 }
-
 
 h2 {
   font-size: 15pt;
@@ -95,13 +95,22 @@ p {
 .post {
   margin-left: 10px;
 }
-.post p{
+
+.post p {
   font-size: 9pt;
-  margin-top:-10px
+  margin-top: -10px
+}
+
+.post .btn-danger{
+  margin-top: 10px;
+  margin-left:240px;
+}
+.post .btn-default{
+
 }
 
 .real-time-post {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .btn-black {
@@ -114,7 +123,7 @@ p {
 }
 
 @media screen and (min-width: 768px) {
-  .btn-block{
+  .btn-block {
     width: 450px;
     margin-left: 5%;
   }
