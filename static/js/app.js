@@ -40931,10 +40931,13 @@
 	        return (React.createElement("div", { className: "commentForm" },
 	            React.createElement("div", null,
 	                "PN",
-	                React.createElement("input", { type: "text", onChange: this.props.changeAuthor })),
+	                React.createElement("input", { name: "pn", type: "text", onChange: this.props.changeAuthor })),
+	            React.createElement("div", null,
+	                "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9",
+	                React.createElement("input", { name: "address", type: "text" })),
 	            React.createElement("div", null,
 	                "\u6295\u7A3F",
-	                React.createElement("input", { type: "text", onChange: this.props.changeText })),
+	                React.createElement("textarea", { name: "content", rows: "4", cols: "20", onChange: this.props.changeText })),
 	            React.createElement(react_bootstrap_1.Button, { bsStyle: "danger", onClick: this.props.onSubmit }, "\u6295\u7A3F")));
 	    };
 	    return CommentForm;
