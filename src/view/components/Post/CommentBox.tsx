@@ -45,7 +45,7 @@ export class CommentBox extends React.Component<P,S> {
                      changeAuthor={this.changeAuthor.bind(this)}
                      changeText={this.changeText.bind(this)}/>
         <div className="real-time-post">
-          <CommentList/>
+          <CommentList commentObjects={this.state.comments}/>
         </div>
       </div>
     );
