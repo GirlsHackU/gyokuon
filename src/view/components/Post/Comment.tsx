@@ -3,13 +3,13 @@ import {CommentObject} from "../../objects/CommentObject";
 import {Button} from "react-bootstrap";
 
 export interface P {
-  commentObject: CommentObject
+  commentObject: CommentObject;
 }
 
 interface S {
 }
 
-export class Comment extends React.Component<P, S> { //commentListの子要素。propsを使う。
+export class Comment extends React.Component<P, S> {
 
   render(): React.ReactElement<any> {
     return (
@@ -17,7 +17,6 @@ export class Comment extends React.Component<P, S> { //commentListの子要素�
         <p className="commentAuthor">
           {this.props.commentObject.author}:
           {this.props.commentObject.text}</p>
-        <Button>more...</Button>
       </div>
     );
   }

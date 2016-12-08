@@ -2,6 +2,7 @@ import * as React from "react";
 import {Header} from "../../objects/Header";
 import {ReadMenu} from "./ReadMenu";
 import {OnAirImg} from "./OnAirImg";
+import {browserHistory} from "react-router";
 
 interface P {
 }
@@ -10,12 +11,14 @@ interface S {
 
 export class Read extends React.Component<P,S> {
 
+  changePage(): void {
+    browserHistory.push("/");
+  }
   render(): React.ReactElement<any> {
     return (
       <div>
         <Header />
-        <ReadMenu />
-        <OnAirImg />
+        <OnAirImg changePage={this.changePage.bind(this)}/>
       </div>
     );
   }
