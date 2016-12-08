@@ -11,22 +11,24 @@ import {browserHistory} from "react-router";
 import {routerMiddleware} from "react-router-redux";
 import {createStore, compose, applyMiddleware, Middleware} from "redux";
 import {syncHistoryWithStore} from "react-router-redux";
+import {Read} from "./components/Read/Read";
 
 const routes = (
-    <Route path="/" component={Page}>
-        <IndexRoute component={Home}/>
-        <Route path="post" component={Post}/>
-        <Route path="search" component={Search}/>
-    </Route>
+  <Route path="/" component={Page}>
+    <IndexRoute component={Read}/>
+    <Route path="post" component={Post}/>
+    <Route path="read" component={Read}/>
+    <Route path="search" component={Search}/>
+  </Route>
 );
 
 const store = createStore(rootReducer, compose(applyMiddleware(routerMiddleware(browserHistory) as Middleware)));
 const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router history={history} routes={routes}/>
-    </Provider>,
-    document.getElementById('content')
+  <Provider store={store}>
+    <Router history={history} routes={routes}/>
+  </Provider>,
+  document.getElementById('content')
 )
 ;

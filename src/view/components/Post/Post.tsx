@@ -5,6 +5,7 @@
 import * as React from "react";
 import {CommentBox} from "./CommentBox";
 import {Header} from "../../objects/Header";
+import {browserHistory} from "react-router";
 
 interface P {
 }
@@ -12,12 +13,16 @@ interface S {
 }
 
 export class Post extends React.Component<P,S> {
-
+  changePage(): void {
+    browserHistory.push('read');
+  }
   render() {
     return (
       <div>
         <Header />
-        <CommentBox />
+        <div className="main">
+          <CommentBox changePage={this.changePage.bind(this)}/>
+        </div>
       </div>
     )
   }

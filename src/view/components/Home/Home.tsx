@@ -13,18 +13,20 @@ interface S {
 
 export class Home extends React.Component<P,S> {
 
-    changePage(): void {
-        browserHistory.push('post');
-    }
+  changePage(): void {
+    browserHistory.push('post');
+  }
 
-    render(): React.ReactElement<any> {
-        return (
-            <div>
-                <Header />
-                <MainMenu changePage={this.changePage.bind(this)}/>
-                <HowToUse />
-                <Footer />
-            </div>
-        );
-    }
+  render(): React.ReactElement<any> {
+    return (
+      <div>
+        <Header />
+        <div className="main">
+          <MainMenu changePage={this.changePage.bind(this)}/>
+          <HowToUse />
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 }

@@ -4,6 +4,7 @@ import {CommentForm} from "./CommentForm";
 import {CommentObject} from '../../objects/CommentObject'
 
 interface P {
+  changePage:Function;
 }
 interface S {
   newComment?: CommentObject;
@@ -41,7 +42,7 @@ export class CommentBox extends React.Component<P,S> {
       <div className="post">
         <h1>きゅんonRadio</h1>
         <p>／あなたの"きゅん"エピソードを教えてください＼</p>
-        <CommentForm onSubmit={this.addComment.bind(this)}
+        <CommentForm onSubmit={this.props.changePage}
                      changeAuthor={this.changeAuthor.bind(this)}
                      changeText={this.changeText.bind(this)}/>
         <div className="real-time-post">

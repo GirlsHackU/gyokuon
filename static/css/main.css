@@ -6,6 +6,7 @@ body {
 header {
   position: relative;
   color: #333;
+  z-index: 1;
 }
 
 header h1 {
@@ -24,6 +25,9 @@ header img {
   height: 45px;
   margin-top: -20px;
 }
+main{
+  z-index: 1;
+}
 
 footer {
   position: absolute;
@@ -31,25 +35,23 @@ footer {
 }
 
 footer img {
-  width: 250%;
-  margin-left: -15%;
+  width: 220%;
+  margin-left: -10%;
   margin-bottom: -5%;
+  z-index: 0;
 }
-
 @media screen and (min-width: 480px) {
   footer img {
     width: 180%;
     margin-left: -10%;
   }
 }
-
 @media screen and (min-width: 768px) and ( max-width: 1024px) {
   footer img {
     width: 120%;
     margin-left: -5%;
   }
 }
-
 @media screen and (min-width: 1024px) {
   footer img {
     width: 100%;
@@ -115,13 +117,17 @@ p {
   width: 55%;
   margin-right: 5px;
 }
-@media screen and (min-width: 768px) {
+
+@media screen and (min-width: 1024px) {
   .btn-block {
-    width: 450px;
+    float: none;
+    width: 40%;
+    margin-left: 5%;
+  }
+  .main-menu p{
     margin-left: 5%;
   }
 }
-
 .how-to-use {
   position: absolute;
   right: 10%;
@@ -160,4 +166,29 @@ p {
 
 .commentList {
   margin-bottom: 20px;
+}
+
+.read img {
+  width: 180%;
+  margin-left: -10%;
+  margin-bottom: -5%;
+  z-index: 0;
+}
+@media screen and (min-width: 480px) {
+  .read img {
+    width: 120%;
+    margin-left: -10%;
+  }
+}
+@media screen and (min-width: 768px) and ( max-width: 1024px) {
+  .read img {
+    width: 80%;
+    margin-left: -5%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .read img {
+    width: 70%;
+    margin-left: 0;
+  }
 }
