@@ -14,7 +14,7 @@ export class Page extends React.Component<P,S> {
   render(): React.ReactElement<any> {
     return (
       <div>
-        {this.props.children};
+        {this.props.children}
       </div>
     )
   }

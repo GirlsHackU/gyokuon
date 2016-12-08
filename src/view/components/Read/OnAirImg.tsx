@@ -1,9 +1,8 @@
 import * as React from "react";
-import {Header} from "../../objects/Header";
-import {ReadMenu} from "./ReadMenu";
 import {Button} from "react-bootstrap";
 
 interface P {
+  changePage:Function;
 }
 interface S {
 }
@@ -21,7 +20,7 @@ export class OnAirImg extends React.Component<P,S> {
             <div className="read-select-btn">
               <Button bsStyle="success">修正する</Button>
               <Button bsStyle="info">Tweetする</Button>
-              <Button bsStyle="warning">ホームへ</Button>
+              <Button bsStyle="warning" onClick={this.props.changePage}>ホームへ</Button>
             </div>
             <img src="../images/on-air.gif" alt="on-air"/>
           </div>

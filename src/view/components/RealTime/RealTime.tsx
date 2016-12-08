@@ -6,15 +6,17 @@ interface P {
 interface S {
 }
 
-export class Recent extends React.Component<P,S> {
+export class RealTime extends React.Component<P,S> {
 
   render(): React.ReactElement<any> {
     return (
       <div>
         <Header />
-        <div className="home">
-          <h1>じぶんが投稿した“きゅん”</h1>
-          <p>検索機能を実装する</p>
+        <div className="real-time">
+          <h1>みんなの“きゅん”</h1>
+          <ul>
+            <li>xxxさん：昨日…(内容を書く)</li>
+          </ul>
         </div>
       </div>
     );

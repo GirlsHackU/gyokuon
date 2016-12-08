@@ -12,23 +12,24 @@ import {routerMiddleware} from "react-router-redux";
 import {createStore, compose, applyMiddleware, Middleware} from "redux";
 import {syncHistoryWithStore} from "react-router-redux";
 import {Read} from "./components/Read/Read";
+import {RealTime} from "./components/RealTime/RealTime";
 
 const routes = (
   <Route path="/" component={Page}>
-    <IndexRoute component={Read}/>
+    <IndexRoute component={Home}/>
     <Route path="post" component={Post}/>
     <Route path="read" component={Read}/>
     <Route path="search" component={Search}/>
+    <Route path="real-time" component={RealTime}/>
   </Route>
 );
 
 const store = createStore(rootReducer, compose(applyMiddleware(routerMiddleware(browserHistory) as Middleware)));
-const history = syncHistoryWithStore(browserHistory, store)
+const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history} routes={routes}/>
   </Provider>,
   document.getElementById('content')
-)
-;
+);
