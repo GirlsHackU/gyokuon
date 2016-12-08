@@ -12,7 +12,7 @@ export class Search extends React.Component<P,S> {
     return (
       <div>
         <Header />
-        <div className="home">
+        <div className="search">
           <h1>検索</h1>
           <p>検索機能を実装する</p>
         </div>

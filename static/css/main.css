@@ -158,10 +158,14 @@ p {
 .post .btn-default {
   float: left;
   height: 25px;
+  width: 65px;
+  font-size: 9pt;
+  padding:5px;
+  margin-left: 5px;
 }
 
 .real-time-post {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .commentList {

@@ -2,9 +2,11 @@ import * as React from "react";
 import {CommentList} from "./CommentList";
 import {CommentForm} from "./CommentForm";
 import {CommentObject} from '../../objects/CommentObject'
+import {Button} from "react-bootstrap";
 
 interface P {
-  changePage:Function;
+  post:Function;
+  readMore:Function;
 }
 interface S {
   newComment?: CommentObject;
@@ -42,11 +44,12 @@ export class CommentBox extends React.Component<P,S> {
       <div className="post">
         <h1>きゅんonRadio</h1>
         <p>／あなたの"きゅん"エピソードを教えてください＼</p>
-        <CommentForm onSubmit={this.props.changePage}
+        <CommentForm onSubmit={this.props.post}
                      changeAuthor={this.changeAuthor.bind(this)}
                      changeText={this.changeText.bind(this)}/>
         <div className="real-time-post">
           <CommentList commentObjects={this.state.comments}/>
+          <Button onClick={this.props.readMore}>more...</Button>
         </div>
       </div>
     );

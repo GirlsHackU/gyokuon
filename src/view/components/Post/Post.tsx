@@ -13,15 +13,18 @@ interface S {
 }
 
 export class Post extends React.Component<P,S> {
-  changePage(): void {
+  post(): void {
     browserHistory.push('read');
+  }
+  readMore(): void {
+    browserHistory.push('real-time');
   }
   render() {
     return (
       <div>
         <Header />
         <div className="main">
-          <CommentBox changePage={this.changePage.bind(this)}/>
+          <CommentBox post={this.post.bind(this)} readMore={this.readMore.bind(this)} />
         </div>
       </div>
     )
