@@ -14,7 +14,7 @@ import {syncHistoryWithStore} from "react-router-redux";
 import {Read} from "./components/Read/Read";
 
 const routes = (
-  <Route path="/gyokuon/static/" component={Page}>
+  <Route path="/" component={Page}>
     <IndexRoute component={Read}/>
     <Route path="post" component={Post}/>
     <Route path="read" component={Read}/>
