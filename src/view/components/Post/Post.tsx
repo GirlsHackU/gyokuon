@@ -19,12 +19,15 @@ export class Post extends React.Component<P,S> {
   readMore(): void {
     browserHistory.push('real-time');
   }
+  goHome(): void {
+    browserHistory.push('/');
+  }
   render() {
     return (
       <div>
         <Header />
         <div className="main">
-          <CommentBox post={this.post.bind(this)} readMore={this.readMore.bind(this)} />
+          <CommentBox post={this.post.bind(this)} readMore={this.readMore.bind(this)} goHome={this.goHome.bind(this)} />
         </div>
       </div>
     )

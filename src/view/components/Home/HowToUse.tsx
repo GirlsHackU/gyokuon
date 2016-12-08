@@ -14,7 +14,7 @@ export class HowToUse extends React.Component<P,S> {
   render(): React.ReactElement<any> {
     return (
       <div className="how-to-use">
-        <Button bsStyle="danger"><img src="../images/howtouse.png" alt="howtouse"/></Button>
+        <img src="../images/how-to-use.png" alt="how-to-use"/>
       </div>
     );
   }
