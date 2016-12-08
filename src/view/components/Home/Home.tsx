@@ -3,10 +3,12 @@ import {Header} from "../../objects/Header";
 import {Footer} from "../../objects/Footer";
 import {HowToUse} from "./HowToUse";
 import {MainMenu} from "./MainMenu";
-import {Search} from "../Search/Search";
+// import {Search} from "../Search/Search";
 import {browserHistory} from "react-router";
+import {RealTime} from "../RealTime/RealTime";
 
 interface P {
+    selectedProgram: Number;
 }
 interface S {
 }
@@ -22,6 +24,7 @@ export class Home extends React.Component<P,S> {
       <div>
         <Header />
         <div className="main">
+            <RealTime />
           <MainMenu changePage={this.changePage.bind(this)}/>
           <HowToUse />
         </div>
