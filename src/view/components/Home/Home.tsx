@@ -5,7 +5,7 @@ import {HowToUse} from "./HowToUse";
 import {MainMenu} from "./MainMenu";
 // import {Search} from "../Search/Search";
 import {browserHistory} from "react-router";
-import {RealTime} from "../RealTime/RealTime";
+import {AllMessage} from "../RealTime/AllMessage";
 
 interface P {
   selectedProgram: Number;
@@ -24,7 +24,7 @@ export class Home extends React.Component<P,S> {
       <div>
         <Header />
         <div className="main">
-          <RealTime />
+          <AllMessage />
           <MainMenu changePage={this.changePage.bind(this)}/>
           <HowToUse />
         </div>

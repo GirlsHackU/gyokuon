@@ -5,8 +5,9 @@ import {CommentObject} from '../../objects/CommentObject'
 import {Button} from "react-bootstrap";
 
 interface P {
-  post:Function;
-  readMore:Function;
+  post: Function;
+  readMore: Function;
+  goHome: Function;
 }
 interface S {
   newComment?: CommentObject;
@@ -46,7 +47,8 @@ export class CommentBox extends React.Component<P,S> {
         <p>／あなたの"きゅん"エピソードを教えてください＼</p>
         <CommentForm onSubmit={this.props.post}
                      changeAuthor={this.changeAuthor.bind(this)}
-                     changeText={this.changeText.bind(this)}/>
+                     changeText={this.changeText.bind(this)}
+                     goHome={this.props.goHome}/>
         <div className="real-time-post">
           <CommentList commentObjects={this.state.comments}/>
           <Button onClick={this.props.readMore}>more...</Button>
