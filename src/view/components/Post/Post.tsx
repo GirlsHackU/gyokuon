@@ -13,7 +13,7 @@ interface S {
 }
 
 export class Post extends React.Component<P,S> {
-  post(): void {
+  goRead(): void {
     browserHistory.push('read');
   }
   readMore(): void {
@@ -27,7 +27,7 @@ export class Post extends React.Component<P,S> {
       <div>
         <Header />
         <div className="main">
-          <CommentBox post={this.post.bind(this)} readMore={this.readMore.bind(this)} goHome={this.goHome.bind(this)} />
+          <CommentBox goRead={this.goRead.bind(this)} readMore={this.readMore.bind(this)} goHome={this.goHome.bind(this)} />
         </div>
       </div>
     )

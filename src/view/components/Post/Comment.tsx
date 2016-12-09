@@ -14,9 +14,10 @@ export class Comment extends React.Component<P, S> {
   render(): React.ReactElement<any> {
     return (
       <div className="comment">
-        <p className="commentAuthor">
-          {this.props.commentObject.author}:
-          {this.props.commentObject.text}</p>
+        <h2 className="commentAuthor">
+          P.N. {this.props.commentObject.author+' さんからのお便り '}
+        </h2>
+        <p className="commentText">{this.props.commentObject.text}</p>
       </div>
     );
   }
