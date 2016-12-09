@@ -7,9 +7,6 @@ import {browserHistory} from "react-router";
 import {CommentObject} from "../../objects/CommentObject";
 
 interface P {
-  changeAuthor: boolean;
-  changeText: boolean;
-  changeMail: boolean;
   handleCommentSubmit: Function;
   goRead: Function;
   goHome: Function;
@@ -80,7 +77,7 @@ export class CommentForm extends React.Component<P, S> {
               <textarea
                   className="form-control"
                   name="text"
-                  rows="4" cols="19" maxlength="70"
+                  rows="4" cols="19" maxLength="70"
                   id="text"
                   required
                   value={this.state.text}

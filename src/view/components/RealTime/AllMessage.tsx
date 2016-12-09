@@ -24,7 +24,7 @@ export class AllMessage extends React.Component<P,S> {
         if (err) {
           console.error('/api/latestPost', status, err.toString());
         }
-        const val = res.body;
+        const val = res.text;
         const text = 'P.N. ' + val.author + " さん < " + val.text;
         this.setState({latestPost: text});
       }.bind(this));
