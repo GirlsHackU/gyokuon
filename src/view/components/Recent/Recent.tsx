@@ -1,8 +1,6 @@
 import * as React from "react";
 import {Header} from "../../objects/Header";
 import {Footer} from "../../objects/Footer";
-import {HowToUse} from "./HowToUse";
-import {MainMenu} from "./MainMenu";
 // import {Search} from "../Search/Search";
 import {browserHistory} from "react-router";
 import {LatestPost} from "../RealTime/LatestPost";
@@ -24,9 +22,6 @@ export class Home extends React.Component<P,S> {
       <div>
         <Header />
         <div className="main">
-          <LatestPost />
-          <MainMenu changePage={this.changePage.bind(this)}/>
-          <HowToUse />
         </div>
         <Footer />
       </div>
