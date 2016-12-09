@@ -11,7 +11,7 @@ interface S {
   timerId: number;
 }
 
-export class AllMessage extends React.Component<P,S> {
+export class LatestPost extends React.Component<P,S> {
   constructor(props: P) {
     super(props);
     this.state = {latestPost: 'init', timerId: 0};
@@ -24,7 +24,7 @@ export class AllMessage extends React.Component<P,S> {
         if (err) {
           console.error('/api/latestPost', status, err.toString());
         }
-        const val = res.text;
+        const val = res.body;
         const text = 'P.N. ' + val.author + " さん < " + val.text;
         this.setState({latestPost: text});
       }.bind(this));

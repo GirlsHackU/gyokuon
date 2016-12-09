@@ -1,6 +1,7 @@
 import * as React from "react";
 import {Header} from "../../objects/Header";
 import {OnAirImg} from "./OnAirImg";
+import {KyunButton} from "./KyunButton";
 import {browserHistory} from "react-router";
 
 interface P {
@@ -18,6 +19,7 @@ export class Read extends React.Component<P,S> {
       <div>
         <Header />
         <OnAirImg changePage={this.changePage.bind(this)}/>
+        <KyunButton />
       </div>
     );
   }

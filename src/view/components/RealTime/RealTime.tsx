@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Button} from "react-bootstrap";
-import {AllMessage} from "./AllMessage";
+import {LatestPost} from "./LatestPost";
 
 interface P {
 }
@@ -13,7 +13,7 @@ export class RealTime extends React.Component<P,S> {
       <div>
         <div className="real-time">
           <h2>みんなの“きゅん”</h2>
-          <AllMessage />
+          <LatestPost />
           <Button bsStyle="warning">ホームへ</Button>
         </div>
       </div>
