@@ -3,6 +3,7 @@ import {CommentList} from "./CommentList";
 import {CommentForm} from "./CommentForm";
 import {CommentObject} from '../../objects/CommentObject'
 import {Button} from "react-bootstrap";
+import request = require('superagent')
 
 interface P {
   goRead: Function;
@@ -19,48 +20,33 @@ export class CommentBox extends React.Component<P,S> {
   constructor(props: P) {
     super(props);
     this.state = {
+      newComment: new CommentObject(Date.now(), "", "", "", "", "", 0),
       comments: [
-        new CommentObject(1, "Suneo", "最近Aくんとよく目があってドキドキしてしまいます…"),
-      ],
-      newComment: new CommentObject(Date.now(), "", "")
+        new CommentObject(1, "Suneo", "最近Aくんとよく目があってドキドキしてしまいます…","suneo3476@gmail.com", "", "", 0),
+      ]
     }
   }
 
-    handleCommentSubmit(comment) {
-      console.log(comment);
-      // const comments = this.state.data;
-      // comment.id = Date.now()
-      // const newComments = comments.concat([comment]);
-      // this.setState({data: newComments});
-      // // TODO: submit to the server and refresh the list
-      // $.ajax({
-      //   url: this.props.url,
-      //   dataType: 'json',
-      //   type: 'POST',
-      //   data: comment,
-      //   success: function(data) {
-      //     this.setState({data: data});
-      //   }.bind(this),
-      //   error: function(xhr, status, err) {
-      //     this.setState({data: comments});
-      //     console.error(this.props.url, status, err.toString());
-      //   }.bind(this)
-      // });
+    handleCommentSubmit(inputComment) {
+      const newComment = new CommentObject(
+          Date.now(),
+          inputComment.author,
+          inputComment.text,
+          inputComment.mail,
+          '', '', 0
+      );
+      this.setState({newComment: newComment});
+      request
+          .post('http://localhost:3000/api/newComment')
+          .send(newComment)
+          .end(function (err, res) {
+            if(err){
+              console.error('/api/newComment', status, err.toString());
+            }
+            const val = res.body;
+            console.log(val);
+          }.bind(this));
     }
-  changeAuthor(e): void {
-    this.setState({newComment: new CommentObject(this.state.newComment.id, e.target.value, this.state.newComment.text)});
-  }
-
-  changeText(e): void {
-    this.setState({newComment: new CommentObject(this.state.newComment.id, this.state.newComment.author, e.target.value)});
-  }
-
-  addComment(): void {
-    this.state.comments.push(this.state.newComment);
-    const nextId = this.state.comments.filter(d => d.hasOwnProperty('id')).map(d => d.id).reduce((p: number, c: number) => p > c ? p : c) + 1;
-    const nextComment = new CommentObject(nextId, "", "");
-    this.setState({comments: this.state.comments, newComment: nextComment});
-  }
 
   render(): React.ReactElement<any> {
     return (
@@ -68,8 +54,6 @@ export class CommentBox extends React.Component<P,S> {
         <h1>きゅんonRadio</h1>
         <p>／あなたの"きゅん"エピソードを教えてください＼</p>
         <CommentForm handleCommentSubmit={this.handleCommentSubmit.bind(this)}
-                     changeAuthor={this.changeAuthor.bind(this)}
-                     changeText={this.changeText.bind(this)}
                      goRead={this.props.goRead}
                      goHome={this.props.goHome}/>
         <div className="real-time-post">
