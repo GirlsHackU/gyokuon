@@ -30,9 +30,10 @@ export class RealTime extends React.Component<P,S> {
 
   componentDidMount() {
     this.loadLatestPostFromServer();
+    var timerId = setInterval(this.loadLatestPostFromServer.bind(this), 2000);
     this.setState({
       latestPost: this.state.latestPost,
-      timerId: setInterval(this.loadLatestPostFromServer.bind(this), 2000)
+      timerId: timerId
     });
   }
 
