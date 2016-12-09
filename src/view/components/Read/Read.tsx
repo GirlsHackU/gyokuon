@@ -20,8 +20,12 @@ export class Read extends React.Component<P,S> {
     return (
       <div>
         <Header />
-        <div>your address:{this.props.params.mail}</div>
-        <OnAirImg changePage={this.changePage.bind(this)} newComment={this.props.newComment}/>
+        <OnAirImg
+            changePage={this.changePage.bind(this)}
+            author={this.props.params.author}
+            text={this.props.params.text}
+            mail={this.props.params.mail}
+        />
       </div>
     );
   }

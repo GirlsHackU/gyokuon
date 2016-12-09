@@ -18,7 +18,7 @@ const routes = (
   <Route path="/" component={Page}>
     <IndexRoute component={Home}/>
     <Route path="post" component={Post}/>
-    <Route path="read/:mail" component={Read}/>
+    <Route path="read/:author/:text/:mail" component={Read}/>
     <Route path="search" component={Search}/>
     <Route path="real-time" component={RealTime}/>
   </Route>
