@@ -1,52 +1,20 @@
 import * as React from "react";
-import {CommentObject} from "../../objects/CommentObject";
-import request = require("superagent");
+import {Button} from "react-bootstrap";
+import {AllMessage} from "./AllMessage";
 
 interface P {
 }
 interface S {
-  latestPost: string;
-  timerId: number;
 }
 
 export class RealTime extends React.Component<P,S> {
-  constructor(props: P) {
-    super(props);
-    this.state = {latestPost: 'init', timerId: 0};
-  }
-
-  loadLatestPostFromServer() {
-    request
-      .get('http://localhost:3000/api/latestPost')
-      .end(function (err, res) {
-        if (err) {
-          console.error('/api/latestPost', status, err.toString());
-        }
-        const val = res.body;
-        const text = 'P.N. ' + val.author + " さん < " + val.text;
-        this.setState({latestPost: text});
-      }.bind(this));
-  }
-
-  componentDidMount() {
-    this.loadLatestPostFromServer();
-    var timerId = setInterval(this.loadLatestPostFromServer.bind(this), 2000);
-    this.setState({
-      latestPost: this.state.latestPost,
-      timerId: timerId
-    });
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.state.timerId);
-  }
-
   render(): React.ReactElement <any> {
     return (
       <div>
         <div className="real-time">
           <h2>みんなの“きゅん”</h2>
-          <p>{this.state.latestPost}</p>
+          <AllMessage />
+          <Button bsStyle="warning">ホームへ</Button>
         </div>
       </div>
     );
