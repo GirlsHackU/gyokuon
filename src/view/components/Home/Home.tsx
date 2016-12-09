@@ -8,7 +8,7 @@ import {browserHistory} from "react-router";
 import {RealTime} from "../RealTime/RealTime";
 
 interface P {
-    selectedProgram: Number;
+  selectedProgram: Number;
 }
 interface S {
 }
@@ -24,7 +24,7 @@ export class Home extends React.Component<P,S> {
       <div>
         <Header />
         <div className="main">
-            <RealTime />
+          <RealTime />
           <MainMenu changePage={this.changePage.bind(this)}/>
           <HowToUse />
         </div>
