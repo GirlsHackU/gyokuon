@@ -1,42 +1,52 @@
 import * as React from "react";
-import * as $ from "jquery";
+import {CommentObject} from "../../objects/CommentObject";
+import request = require("superagent");
 
 interface P {
 }
 interface S {
-    latestPost: string;
+  latestPost: string;
+  timerId: number;
 }
 
 export class RealTime extends React.Component<P,S> {
-    constructor(props: P){
-        super(props);
-        this.state = {'latestPost': ''};
-    }
-    handleLatestPost(data){
-        const text = 'P.N. ' + data.author + " さん < " + data.text;
-        this.setState({'latestPost': text});
-    };
-    loadLatestPostFromServer = function(){
-        $.ajax({
-            url: 'http://localhost:3000/api/latestPost',
-            dataType: 'json',
-            cache: false,
-            success: this.handleLatestPost.bind(this),
-            error: function(xhr, status, err) {
-                console.error('/api/latestPost', status, err.toString());
-            }.bind(this)
-        });
-    };
-    componentDidMount = function(){
-        this.loadLatestPostFromServer();
-        setInterval(this.loadLatestPostFromServer, 2000);
-    };
-  render(): React.ReactElement<any> {
+  constructor(props: P) {
+    super(props);
+    this.state = {latestPost: 'init', timerId: 0};
+  }
+
+  loadLatestPostFromServer() {
+    request
+      .get('http://localhost:3000/api/latestPost')
+      .end(function (err, res) {
+        if (err) {
+          console.error('/api/latestPost', status, err.toString());
+        }
+        const val = res.body;
+        const text = 'P.N. ' + val.author + " さん < " + val.text;
+        this.setState({latestPost: text});
+      }.bind(this));
+  }
+
+  componentDidMount() {
+    this.loadLatestPostFromServer();
+    var timerId = setInterval(this.loadLatestPostFromServer.bind(this), 2000);
+    this.setState({
+      latestPost: this.state.latestPost,
+      timerId: timerId
+    });
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.timerId);
+  }
+
+  render(): React.ReactElement <any> {
     return (
       <div>
         <div className="real-time">
           <h2>みんなの“きゅん”</h2>
-            <p>{this.state.latestPost}</p>
+          <p>{this.state.latestPost}</p>
         </div>
       </div>
     );

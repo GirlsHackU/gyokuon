@@ -43,8 +43,8 @@ app.get('/api/latestPost', function(req, res) {
             process.exit(1);
         }
         res.json(JSON.parse(data).sort(function(a,b){
-            if(a.id < b.id) return -1;
-            else return 1;
+            if(a.id < b.id) return 1;
+            else return -1;
         }).shift());
     });
 });
@@ -55,11 +55,11 @@ app.post('/api/comments', function(req, res) {
             console.error(err);
             process.exit(1);
         }
-        let comments = JSON.parse(data);
+        const comments = JSON.parse(data);
         // NOTE: In a real implementation, we would likely rely on a database or
         // some other approach (e.g. UUIDs) to ensure a globally unique id. We'll
         // treat Date.now() as unique-enough for our purposes.
-        let newComment = {
+        const newComment = {
             id: Date.now(),
             author: req.body.author,
             text: req.body.text,
@@ -78,6 +78,7 @@ app.post('/api/comments', function(req, res) {
 
 app.listen(app.get('port'), function() {
     console.log('Server started: http://localhost:' + app.get('port') + '/');
-});/**
+});
+/**
  * Created by suneo3476 on 2016/12/08.
  */
