@@ -25,7 +25,7 @@ export class Home extends React.Component<P,S> {
         <Header />
         <div className="main">
           <AllMessage />
-          <MainMenu changePage={this.changePage.bind(this)}/>
+          <MainMenu changePage={this.changePage}/>
           <HowToUse />
         </div>
         <Footer />
