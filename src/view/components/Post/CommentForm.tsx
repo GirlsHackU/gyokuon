@@ -35,13 +35,13 @@ export class CommentForm extends React.Component<P, S> {
       e.preventDefault();
       const author = this.state.author.trim();
       const text = this.state.text.trim();
-      const mail = this.state.text.trim();
+      const mail = this.state.mail.trim();
       if(!author || !text || !mail){
           return;
       }
       this.props.handleCommentSubmit({author: author, text: text, mail: mail});
       this.setState({'author': '', 'text': '', 'mail': ''});
-      this.props.goRead();
+      this.props.goRead(mail);
     }
   render(): React.ReactElement<any> {
     return (
@@ -52,7 +52,7 @@ export class CommentForm extends React.Component<P, S> {
                   className="form-control"
                   name="author"
                   type="text"
-                  placeholder="ぺんねーむ"
+                  placeholder="ペンネーム"
                   id="pn"
                   required
                   value={this.state.author}
@@ -77,7 +77,7 @@ export class CommentForm extends React.Component<P, S> {
               <textarea
                   className="form-control"
                   name="text"
-                  rows="4" cols="19" maxLength="70"
+                  rows="3" cols="19" maxLength="70"
                   id="text"
                   required
                   value={this.state.text}

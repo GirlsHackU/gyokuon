@@ -1,9 +1,11 @@
 import * as React from "react";
 import {Button} from "react-bootstrap";
 import {browserHistory} from "react-router";
+import {CommentObject} from "../../objects/CommentObject";
 
 interface P {
   changePage:Function;
+  newComment:CommentObject;
 }
 interface S {
 }
@@ -26,7 +28,7 @@ export class OnAirImg extends React.Component<P,S> {
           <h2>きゅんonRadio</h2>
           <p>／Now on Air＼</p>
           <div className="on-air-message">
-            <p>PN:suneoさんからの投稿です。今日学校へ行ったら…(内容を表示)</p>
+            <p>PNxxさんからの投稿内容がここに入る{this.props.newComment}</p>
             <img src="../images/on-air.gif" alt="on-air"/>
           </div>
         </div>

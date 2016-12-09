@@ -36,7 +36,7 @@ footer {
 }
 
 footer img {
-  width: 220%;
+  width: 210%;
   margin-left: -10%;
   z-index: 0;
 }
@@ -77,11 +77,11 @@ h1 {
 }
 
 h2 {
-  font-size: 15pt;
+  font-size: 14pt;
 }
 
 p {
-  font-size: 11pt;
+  font-size: 10.5pt;
 }
 
 /*-------------ここまでh1などの要素-------------*/
@@ -98,15 +98,20 @@ p {
 
 .main-menu {
   margin-left: 10px;
+  margin-top: 30px;
 }
 
 .main-menu p {
-  margin-top: -10px;
+  margin-top: -12px;
 }
-.main-menu h2{
+
+.main-menu h2 {
   margin-left: 0;
 }
 
+.menu-list{
+  margin-top: -5px;
+}
 .menu-list p {
   font-size: 9pt;
   line-height: 10pt;
@@ -166,13 +171,22 @@ p {
   width: 220px;
 }
 
-.post .btn{
-  margin-top: 10px;
+.post .btn {
+  padding: 5px 10px;
+  font-size: 10pt;
+  margin-top: -5px;
+}
+.post .btn-warning{
+  margin-left: 160px;
   margin-right: 10px;
 }
 
-.real-time-post {
-  margin-top: 30px;
+.real-time-post{
+ margin-top: 30px;
+}
+
+.real-time-post h2, .real-time-post p{
+  font-size: 9pt;
 }
 
 .real-time-post .btn-default {
@@ -186,37 +200,52 @@ p {
 }
 
 .commentList {
-  margin-bottom: 20px;
+
+}
+
+.form-control {
+  width: 300px;
+  height: 30px;
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+label{
+  margin-bottom: 0;
+  font-weight: 600;
+
 }
 
 /*------Read------*/
 
-.read p, h2 {
+.read p, .read h2 {
   margin-left: 10px;
 }
 
 .read p {
-  color:#d3231e;
+  color: #d3231e;
   margin-top: -10px;
   font-size: 9pt;
 }
-.read-select-btn{
+
+.read-select-btn {
   margin-left: 25%;
 }
-.read .btn{
+
+.read .btn {
   padding: 2px 5px;
   font-size: 9pt;
 }
 
-.on-air-message{
+.on-air-message {
   margin-top: 10px;
   margin-bottom: 0;
 }
 
 .on-air-message p {
   margin-top: 0;
-  color:#333;
-  font-size: 11pt;
+  color: #333;
+  font-size: 10.5pt;
 }
 
 .on-air-message img {
@@ -252,12 +281,16 @@ p {
 .real-time {
   margin-left: 10px;
 }
-.all-message{
+
+.recent-message {
   margin-left: 10px;
 }
-.all-message img{
+
+.recent-message img {
+  float: left;
   width: 40px;
 }
-.all-message p{
+
+.recent-message p {
   font-size: 9pt;
 }

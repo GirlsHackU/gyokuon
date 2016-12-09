@@ -11,6 +11,7 @@
  */
 
 const fs = require('fs');
+const url = require('url');
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -27,7 +28,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(corser.create());
 
 // Additional middleware which will set headers that we need on each request.
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     // Set permissive CORS header - this allows this server to be used only as
     // an API server in conjunction with something like webpack-dev-server.
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -38,22 +39,48 @@ app.use(function(req, res, next) {
 });
 
 // 最新（idが一番大きい）の投稿データをjsonで返す
-app.get('/api/latestPost', function(req, res) {
-    fs.readFile(COMMENTS_FILE, function(err, data) {
+app.get('/api/latestPost', function (req, res) {
+    fs.readFile(COMMENTS_FILE, function (err, data) {
         if (err) {
             console.error(err);
             process.exit(1);
         }
-        res.json(JSON.parse(data).sort(function(a,b){
-            if(a.id < b.id) return 1;
+        res.json(JSON.parse(data).sort(function (a, b) {
+            if (a.id < b.id) return 1;
             else return -1;
         }).shift());
     });
 });
 
+app.get('/api/list', function (req, res) {
+    fs.readFile(COMMENTS_FILE, function (err, data) {
+        if (err) {
+            console.error(err);
+            process.exit(1);
+        }
+        res.json(JSON.parse(data).slice(0, 5));
+    });
+});
+
+app.get('/api/search', function (req, res) {
+    fs.readFile(COMMENTS_FILE, function (err, data) {
+        if (err) {
+            console.error(err);
+            process.exit(1);
+        }
+        const url_parts = url.parse(req.url, true);
+        const author = url_parts.query.author;
+        const mail = url_parts.query.mail;
+        res.json(JSON.parse(data).filter(function (item, index) {
+            if ((!author || item.author == author)
+                && (!mail || item.mail == mail)) return true;
+        }));
+    });
+});
+
 // 新しい投稿を追加する
-app.post('/api/newComment', function(req, res) {
-    fs.readFile(COMMENTS_FILE, function(err, data) {
+app.post('/api/search', function (req, res) {
+    fs.readFile(COMMENTS_FILE, function (err, data) {
         if (err) {
             console.error(err);
             process.exit(1);
@@ -73,7 +100,7 @@ app.post('/api/newComment', function(req, res) {
             kyun: 0
         };
         comments.push(newComment);
-        fs.writeFile(COMMENTS_FILE, JSON.stringify(comments, null, 4), function(err) {
+        fs.writeFile(COMMENTS_FILE, JSON.stringify(comments, null, 4), function (err) {
             if (err) {
                 console.error(err);
                 process.exit(1);
@@ -84,7 +111,7 @@ app.post('/api/newComment', function(req, res) {
 });
 
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), function () {
     console.log('Server started: http://localhost:' + app.get('port') + '/');
 });
 /**

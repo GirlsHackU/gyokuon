@@ -13,8 +13,8 @@ interface S {
 }
 
 export class Post extends React.Component<P,S> {
-  goRead(): void {
-    browserHistory.push('read');
+  goRead(mail:string): void {
+    browserHistory.push('read/'+mail);
   }
   readMore(): void {
     browserHistory.push('real-time');
