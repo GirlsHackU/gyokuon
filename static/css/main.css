@@ -103,12 +103,15 @@ p {
 .main-menu p {
   margin-top: -10px;
 }
+.main-menu h2{
+  margin-left: 0;
+}
 
 .menu-list p {
   font-size: 9pt;
   line-height: 10pt;
   margin-top: 0;
-  padding: 5px;
+  padding: 2px;
   vertical-align: middle;
 }
 
@@ -254,4 +257,7 @@ p {
 }
 .all-message img{
   width: 40px;
+}
+.all-message p{
+  font-size: 9pt;
 }
