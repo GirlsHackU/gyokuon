@@ -41,7 +41,7 @@ export class CommentForm extends React.Component<P, S> {
       }
       this.props.handleCommentSubmit({author: author, text: text, mail: mail});
       this.setState({'author': '', 'text': '', 'mail': ''});
-      this.props.goRead(author, text, mail);
+      this.props.goRead(mail);
     }
   render(): React.ReactElement<any> {
     return (

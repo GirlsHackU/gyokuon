@@ -52,63 +52,6 @@ app.get('/api/latestPost', function (req, res) {
     });
 });
 
-//特定のメールアドレスの最新の投稿を得る
-app.post('/api/getLatestCommentByMail', function (req, res) {
-    fs.readFile(COMMENTS_FILE, function (err, data) {
-        if (err) {
-            console.error(err);
-            process.exit(1);
-        }
-        console.log(req.body);
-        const mail = req.body.mail;
-        //特定のメールアドレスの最新の投稿を返す
-        res.json(JSON.parse(data).filter((a)=>{
-            return a.mail == mail;
-        }).sort(function(a,b){
-            if(a.id > b.id) return -1;
-            if(a.id < b.id) return 1;
-        }).shift());
-    });
-});
-
-// 特定のメールアドレスの最新の投稿のきゅん数を1プラスする
-app.post('/api/countUpKyun', function (req, res) {
-    fs.readFile(COMMENTS_FILE, function (err, data) {
-        if (err) {
-            console.error(err);
-            process.exit(1);
-        }
-        const comments = JSON.parse(data),
-              mail = req.body.mail;
-        //特定のメールアドレスの最新の投稿のIDを得る
-        const latestCommentIdByMail = comments.filter((a)=>{
-            return a.mail == mail;
-        }).sort(function(a,b){
-            if(a.id > b.id) return -1;
-            if(a.id < b.id) return 1;
-        }).shift().id;
-        //最新の投稿を排除した配列を作る
-        const newComments = comments.filter(function(item){
-           if(item.id != latestCommentIdByMail) return true;
-        });
-        //最新の投稿のkyunを更新したデータを作る
-        const changeComment = comments.filter(function(item){
-            if(item.id == latestCommentIdByMail) return true;
-        }).shift();
-        changeComment.kyun += 1;
-        //新しい配列に更新したデータを加える
-        newComments.push(changeComment);
-        //jsonファイルを書き換える
-        fs.writeFile(COMMENTS_FILE, JSON.stringify(newComments, null, 4), function (err) {
-            if (err) {
-                console.error(err);
-                process.exit(1);
-            }
-            res.json(comments);
-        });
-    });
-});
-
 app.get('/api/list', function (req, res) {
     fs.readFile(COMMENTS_FILE, function (err, data) {
         if (err) {
@@ -136,7 +79,7 @@ app.get('/api/search', function (req, res) {
 });
 
 // 新しい投稿を追加する
-app.post('/api/newComment', function (req, res) {
+app.post('/api/search', function (req, res) {
     fs.readFile(COMMENTS_FILE, function (err, data) {
         if (err) {
             console.error(err);
@@ -146,8 +89,7 @@ app.post('/api/newComment', function (req, res) {
         // NOTE: In a real implementation, we would likely rely on a database or
         // some other approach (e.g. UUIDs) to ensure a globally unique id. We'll
         // treat Date.now() as unique-enough for our purposes.
-        console.log('/api/newComment 新しいコメントです');
-        console.log(req.body);
+        console.log(req.body)
         const newComment = {
             id: Date.now(),
             author: req.body.author,

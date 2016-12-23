@@ -36,7 +36,7 @@ footer {
 }
 
 footer img {
-  width: 210%;
+  width: 190%;
   margin-left: -10%;
   z-index: 0;
 }
@@ -146,7 +146,7 @@ p {
 .how-to-use {
   position: absolute;
   right: 10%;
-  bottom: 20%;
+  bottom: 17%;
 }
 
 .how-to-use img {
@@ -163,7 +163,7 @@ p {
 
 .post p {
   font-size: 9pt;
-  margin-top: -10px;
+  margin-top: -12px;
 }
 
 .post .commentList p {
@@ -177,7 +177,7 @@ p {
   margin-top: -5px;
 }
 .post .btn-warning{
-  margin-left: 160px;
+  margin-left: 150px;
   margin-right: 10px;
 }
 
@@ -195,7 +195,7 @@ p {
   width: 65px;
   font-size: 9pt;
   padding: 5px;
-  margin-left: 5px;
+  margin-left: 220px;
   margin-top: -5px;
 }
 
@@ -284,11 +284,13 @@ label{
 
 .recent-message {
   margin-left: 10px;
+  margin-bottom: -10px;
 }
 
 .recent-message img {
   float: left;
   width: 40px;
+  margin-right: 5px;
 }
 
 .recent-message p {

@@ -18,17 +18,16 @@ export class Home extends React.Component<P,S> {
   changePage(): void {
     browserHistory.push('post');
   }
-    readMore(): void {
-        browserHistory.push('real-time');
-    }
+  readMore(): void {
+    browserHistory.push('real-time');
+  }
 
   render(): React.ReactElement<any> {
     return (
       <div>
         <Header />
         <div className="main">
-          <LatestPost readMore={this.readMore.bind(this)}/>
-          <MainMenu changePage={this.changePage.bind(this)}/>
+          <LatestPost readMore={this.readMore.bind(this)}/>          <MainMenu changePage={this.changePage.bind(this)}/>
           <HowToUse />
         </div>
         <Footer />

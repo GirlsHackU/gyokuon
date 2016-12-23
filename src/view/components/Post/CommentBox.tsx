@@ -38,9 +38,11 @@ export class CommentBox extends React.Component<P,S> {
           .post('http://localhost:3000/api/newComment')
           .send(newComment)
           .end(function (err, res) {
-              if(err){
-                  console.error('/api/newComment', status, err.toString());
-              }
+            if(err){
+              console.error('/api/newComment', status, err.toString());
+            }
+            const val = res.body;
+            console.log(val);
           }.bind(this));
     }
 
@@ -54,6 +56,7 @@ export class CommentBox extends React.Component<P,S> {
                      goHome={this.props.goHome}/>
         <div className="real-time-post">
           <LatestPost/>
+          <Button onClick={this.props.readMore}>more...</Button>
         </div>
       </div>
     );

@@ -2,13 +2,10 @@ import * as React from "react";
 import {Button} from "react-bootstrap";
 import {browserHistory} from "react-router";
 import {CommentObject} from "../../objects/CommentObject";
-import {KyunButton} from "./KyunButton";
+
 interface P {
   changePage:Function;
   newComment:CommentObject;
-  author: string;
-  text: string;
-  mail: string;
 }
 interface S {
 }
@@ -32,10 +29,10 @@ export class OnAirImg extends React.Component<P,S> {
           <p>　　　／Now on Air＼</p>
           <div className="on-air-message">
             <div>
-              <p className="message-author">続いては、P.N. {this.props.author} さんからの投稿。</p>
-              <p className="message-text">「{this.props.text}」ですって！</p>
+              <p className="message-author">続いては、P.N. {this.props.newComment.author} さんからの投稿。</p>
+              <p className="message-text">「{this.props.newComment.text}」ですって！</p>
               <p>リスナーのみんな、「きゅん」としたかな？</p>
-              <KyunButton mail={this.props.mail}/>
+              <KyunButton mail={this.props.newComment.mail}/>
             </div>
             <img src="/images/on-air.gif" alt="on-air"/>
           </div>

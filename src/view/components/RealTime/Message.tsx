@@ -25,11 +25,8 @@ export class Message extends React.Component<P,S> {
         if (err) {
           console.error('/api/latestPost', status, err.toString());
         }
-        const val = res.body;
-        this.setState({
-          author: val.author,
-          text: val.text,
-          timerId: this.state.timerId});
+        const val = res.text;
+        this.setState({author: val.author, text: val.text});
       }.bind(this));
   }
 
@@ -50,8 +47,8 @@ export class Message extends React.Component<P,S> {
   render(): React.ReactElement <any> {
     return (
       <div>
-        <p>P.N. {this.state.author}さんの投稿</p>
-        <p>{this.state.text}</p>
+        <p>P.N. {this.state.author}さんの投稿です。</p>
+        <p>{this.state.text}さんの投稿です。</p>
       </div>
     );
   }
